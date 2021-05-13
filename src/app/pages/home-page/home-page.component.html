@@ -1,0 +1,36 @@
+<div class="containerWrapper">
+    <h1>Welcome to Home Page.</h1>
+    <p class="p-link" [routerLink]="['/contact-us']">Click here to Contact Us.</p>
+
+    <!-- <div class="formContainer">
+        <form>
+            <div class="inputContainer">
+                <label for="inputFirstname" class="label">Firstname: ({{ firstName }})</label>
+                <input class="input" id="inputFirstname" placeholder="enter firstname" [(ngModel)]="firstName" [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="inputContainer">
+                <label for="inputLastname" class="label">Lastname: ({{ lastName }})</label>
+                <input class="input" id="inputLastname" placeholder="enter lastname" [(ngModel)]="lastName" [ngModelOptions]="{standalone: true}">
+            </div>
+    
+            <button (click)="btnSubmitClicked()">Submit</button>
+        </form>
+    </div> -->
+
+    <div class="formContainer">
+        <form [formGroup]="registrationForm" (ngSubmit)="formSubmitted(registrationForm.value)">
+            <div class="inputContainer">
+                <label for="inputFirstname" class="label">Firstname: ({{ firstName }})</label>
+                <input class="input" id="inputFirstname" placeholder="enter firstname" formControlName="firstName">
+            </div>
+            <div class="inputContainer">
+                <label for="inputLastname" class="label">Lastname: ({{ lastName }})</label>
+                <input class="input" id="inputLastname" placeholder="enter lastname" formControlName="lastName">
+            </div>
+    
+            <button class="btnSubmit" (click)="btnSubmitClicked()">Submit</button>
+        </form>
+    </div>
+
+    <app-user-grid-container [arrUser]="arrUser"></app-user-grid-container>
+</div>

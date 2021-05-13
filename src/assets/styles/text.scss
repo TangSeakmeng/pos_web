@@ -1,0 +1,9 @@
+.p-link {
+    margin-top: 20px;
+    
+    &:hover {
+        cursor: pointer;
+        color: cornflowerblue;
+        text-decoration: underline;
+    }
+}
