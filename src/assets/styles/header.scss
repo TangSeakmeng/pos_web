@@ -1,9 +1,25 @@
 #headerContainer {
     width: 100%;
     height: auto;
-    padding: 20px;
+    padding: 20px 40px;
     
     color: $white;
     background-color: $color1;
     font-family: $primary-font;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .btnSignOut {
+        outline: none;
+        border: none;
+        padding: 10px 20px;
+        color: white;
+        background-color: $color2;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
 }

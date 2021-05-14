@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MobxAngularModule } from 'mobx-angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,9 +13,9 @@ import { MainFrontLayoutComponent } from './layouts/main-front-layout/main-front
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserCardComponent } from './components/user-card/user-card.component';
 import { UserGridContainerComponent } from './components/user-grid-container/user-grid-container.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
 
 @NgModule({
   declarations: [
@@ -25,13 +28,16 @@ import { UserGridContainerComponent } from './components/user-grid-container/use
     ContactPageComponent,
     NotFoundPageComponent,
     UserCardComponent,
-    UserGridContainerComponent
+    UserGridContainerComponent,
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MobxAngularModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

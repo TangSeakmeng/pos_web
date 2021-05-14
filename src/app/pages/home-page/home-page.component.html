@@ -1,4 +1,4 @@
-<div class="containerWrapper">
+<div class="containerWrapper" *mobxAutorun>
     <h1>Welcome to Home Page.</h1>
     <p class="p-link" [routerLink]="['/contact-us']">Click here to Contact Us.</p>
 
@@ -20,12 +20,41 @@
     <div class="formContainer">
         <form [formGroup]="registrationForm" (ngSubmit)="formSubmitted(registrationForm.value)">
             <div class="inputContainer">
-                <label for="inputFirstname" class="label">Firstname: ({{ firstName }})</label>
+                <label for="inputFirstname" class="label">Firstname</label>
                 <input class="input" id="inputFirstname" placeholder="enter firstname" formControlName="firstName">
+                <p class="errorMessageLabel" *ngIf="registrationForm.controls['firstName']?.touched && registrationForm.controls['firstName']?.errors?.required">Please Input Firstname.</p>
             </div>
+
             <div class="inputContainer">
-                <label for="inputLastname" class="label">Lastname: ({{ lastName }})</label>
+                <label for="inputLastname" class="label">Lastname</label>
                 <input class="input" id="inputLastname" placeholder="enter lastname" formControlName="lastName">
+                <p class="errorMessageLabel" *ngIf="registrationForm.controls['lastName']?.touched && registrationForm.controls['lastName']?.errors?.required">Please Input Lastname.</p>
+            </div>
+
+            <div class="inputContainer">
+                <label for="inputEmail" class="label">Email</label>
+                <input class="input" id="inputEmail" placeholder="enter email" formControlName="email">
+            </div>
+
+            <div class="inputContainer">
+                <label for="inputPassword" class="label">Password</label>
+                <input class="input" id="inputPassword" placeholder="enter password" formControlName="password">
+            </div>
+
+            <div class="inputContainer">
+                <label for="inputConfirmPassword" class="label">Confirm Password</label>
+                <input class="input" id="inputConfirmPassword" placeholder="enter confirm password" formControlName="confirmPassword">
+                <p class="errorMessageLabel" *ngIf="registrationForm.controls['confirmPassword']?.touched && registrationForm.controls['confirmPassword']?.errors?.confirmedValidator">Confirm Password is not match.</p>
+            </div>
+
+            <div class="inputContainer">
+                <label for="inputAge" class="label">Age</label>
+                <input class="input" type="number" id="inputAge" placeholder="enter age" formControlName="age">
+            </div>
+
+            <div class="inputContainer">
+                <label for="inputPhoto" class="label">Photo</label>
+                <input class="input" type="file" id="inputPhoto" formControlName="photo">
             </div>
     
             <button class="btnSubmit" (click)="btnSubmitClicked()">Submit</button>
